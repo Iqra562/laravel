@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ControllerFile;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,24 +34,45 @@ Route::get('/post', function () {
 //     return view('b');
 // });
 
-Route::get('/post/{id?}',function($id = null){
-    return 
-    '<h1>Psot ID : ' .$id .'</h1>';
-    // return view('post');
-})->whereNumber('id');
-Route::get('/a',function(){
-    return view('a');
+// Route::get('/post/{id?}',function($id = null){
+//     return 
+//     '<h1>Psot ID : ' .$id .'</h1>';
+//     // return view('post');
+// })->whereNumber('id');
+// Route::get('/a',function(){
+//     return view('a');
 
-})->name('AFile');
-Route::redirect('/abc','/a');
-Route::prefix('/page')->group(function(){
-    Route::get('/prefix1', function () {
-    return view('prefix1');
+// })->name('AFile');
+// Route::redirect('/abc','/a');
+// Route::prefix('/page')->group(function(){
+//     Route::get('/prefix1', function () {
+//     return view('prefix1');
+// });
+//     Route::get('/prefix2', function () {
+//     return view('prefix2');
+// });
+// });
+// Route::fallback(function(){
+//     return "<h1>Page Not Found</h1>";
+// });
+// Route::get('basic', function () {
+//     return view('basic');
+// });
+// // Main Layout Folder ROutes
+// Route::get('/About', function () {
+//     return view('About');
+// });
+Route::get('/Home',function(){
+    return view('Home');
 });
-    Route::get('/prefix2', function () {
-    return view('prefix2');
+// Route::get('/script',function(){
+//     return view('script');
+// });
+
+//end
+// controlleer start 
+Route::controller(ControllerFile::class)->group(function(){
+    Route::get('/post','postFile');
+    Route::get('/About','aboutFile');
 });
-});
-Route::fallback(function(){
-    return "<h1>Page Not Found</h1>";
-});
+// controlleer end
