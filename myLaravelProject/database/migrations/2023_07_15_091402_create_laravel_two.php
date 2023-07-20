@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('laravel_two', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('address');
+            $table->string('designation');
         });
     }
 

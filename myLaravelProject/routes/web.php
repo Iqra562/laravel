@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ControllerFile;
+use App\Http\Controllers\InsertData;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,3 +77,6 @@ Route::controller(ControllerFile::class)->group(function(){
     Route::get('/About','aboutFile');
 });
 // controlleer end
+// Building Query start
+Route::get('/Student',[InsertData::class,'getTable']);
+// Building Query end
